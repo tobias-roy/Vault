@@ -1,0 +1,233 @@
+﻿@page "/"
+@using Newtonsoft.Json
+@using VaultService
+@inject IVaultManager VaultManager
+@rendermode InteractiveServer
+
+<PageTitle>City Vault</PageTitle>
+
+<div class="mainGrid">
+    <div class="mainGridItem left @(_opened ? "openLeft" : "")">
+        @if (_opened)
+        {
+            <table>
+                <tr>
+                    <th>Website</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                </tr>
+                @foreach (var combination in Entries)
+                {
+                <tr>
+                    <td>@combination.Website</td>
+                    <td>@combination.Username</td>
+                    <td type="password">@combination.Password</td>
+                </tr>
+                }
+            </table>
+            <button onclick="@CreateNewEntry">Add new combination</button>
+        }
+    </div>
+    <div class="mainCenter">
+        <img class="lock @(_opened ? "open" : "")" onclick="@OpenLock" src="@(_opened ? "images/lock-open.png" : "images/lock.png")" />
+    </div>
+    <div class="mainGridItem right">
+    </div>
+</div>
+
+@if (_displayPasswordInput)
+{
+    <div class="decryptEncryptInputWrapper @(_wrongPassword ? "wrongPassword" : "")">
+        <input onchange="@PasswordInputChanged" @ref="decryptPasswordInput" type="password" class="decryptEncryptInput" onkeydown="@TryPassword"/>
+    </div>
+}
+
+@if(_createNewEntryModal)
+{
+    <div class="createEntryOverlay">
+        <EditForm Model="NewVaultEntry" OnSubmit="SubmitEntry">
+            <InputText placeholder="Website" @bind-Value="NewVaultEntry.Website"></InputText>
+            <InputText placeholder="Username" @bind-Value="NewVaultEntry.Username"></InputText>
+            <InputText placeholder="Password" type="password" @bind-Value="NewVaultEntry.Password"></InputText>
+            <button type="submit">Add Entry</button>
+        </EditForm>
+    </div>
+}
+
+
+@code {
+    private ElementReference decryptPasswordInput;
+    private VaultEntry NewVaultEntry { get; set; } = new VaultEntry();
+    private bool _opened = false;
+    private bool _displayPasswordInput = false;
+    private bool _createNewEntryModal = false;
+    private bool _wrongPassword = false;
+    private string _decryptPassword = "";
+    public List<VaultEntry> Entries { get; set; } = new List<VaultEntry>();
+    private string PageTitle = "City Vault - Locked";
+    
+    public async Task OpenLock()
+    {
+        if (_opened)
+        {
+            VaultManager.EncryptVault(_decryptPassword);
+            _opened = false;
+            _displayPasswordInput = false;
+            return;
+        }
+        _displayPasswordInput = true;
+        await Task.Delay(100);
+        await decryptPasswordInput.FocusAsync();
+    }
+
+    public async Task TryPassword(KeyboardEventArgs e)
+    {
+        if(e.Key == "Enter")
+        {
+            await Task.Delay(200);
+            try
+            {
+                VaultManager.DecryptVault(_decryptPassword);
+                Entries = VaultManager.LoadEntries();
+                _displayPasswordInput = false;
+                _opened = true;
+            }
+            catch (Exception exception)
+            {
+                _wrongPassword = true;
+            }
+        }
+    }
+
+    public void CreateNewEntry ()
+    {
+        _createNewEntryModal = true;
+    }
+    
+    public void SubmitEntry()
+    {
+        VaultManager.AddEntry(NewVaultEntry);
+        _createNewEntryModal = false;
+        Entries = VaultManager.LoadEntries();
+    }
+
+    public void PasswordInputChanged(ChangeEventArgs e)
+    {
+        _decryptPassword = e.Value.ToString();
+        _wrongPassword = false;
+    }
+}
+
+<style>
+    .mainGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        height: 100vh;
+        background-image: url("images/city-vault.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto 100%;
+        position: relative;
+    }
+
+    .mainGridItem.left {
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        align-self: center;
+        background-color: rgba(208, 198, 198, 0.71);
+        border-radius: 10px;
+        padding: 5px;
+        height: 50%;
+        width: 80%;
+        box-shadow: black 0px 0px 10px;
+        visibility: hidden;
+    }
+    
+    .mainGridItem.left.openLeft {
+        visibility: visible;
+    }
+    
+    .mainCenter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    img.wok {
+        width: 95%;
+    }
+    
+    .lock {
+        height: 100px;
+        width: 100px;
+        background: red;
+        border-radius: 8px;
+        border: none;
+        position: absolute;
+        cursor: pointer;
+    }
+    
+    .lock.open {
+        background: green;
+    }
+    
+    .decryptEncryptInputWrapper {
+        position: absolute;
+        align-self: center;
+        top: 35%;
+        left: calc(50% - 100px);
+        height: 50px;
+        width: 200px;
+        z-index: 100;
+    }
+    
+    .decryptEncryptInputWrapper.wrongPassword {
+        background-color: red;
+        border-radius: 5px;
+        animation: skew-x-shakeng 0.5s;
+    }
+    
+    @@keyframes skew-x-shakeng{
+        0% { transform: skewX(-15deg); }
+        5% { transform: skewX(15deg); }
+        10% { transform: skewX(-15deg); }
+        15% { transform: skewX(15deg); }
+        20% { transform: skewX(0deg); }
+        100% { transform: skewX(0deg); }
+    }
+    
+    .decryptEncryptInputWrapper input {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        border: none;
+        padding: 5px;
+        background-image: url("images/key.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: right;
+        background-color: rgba(128, 128, 128, 0.4);
+    }
+    
+    .decryptEncryptInputWrapper input:focus {
+        background-color: rgba(128, 128, 128, 0.8);
+        outline: none;
+        color: white;
+    }
+    
+    .createEntryOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+</style>

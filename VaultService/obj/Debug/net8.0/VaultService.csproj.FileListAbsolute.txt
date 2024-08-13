@@ -1,0 +1,12 @@
+/Users/roy/Documents/Skole/Vault/VaultService/bin/Debug/net8.0/VaultService.deps.json
+/Users/roy/Documents/Skole/Vault/VaultService/bin/Debug/net8.0/VaultService.dll
+/Users/roy/Documents/Skole/Vault/VaultService/bin/Debug/net8.0/VaultService.pdb
+/Users/roy/Documents/Skole/Vault/VaultService/obj/Debug/net8.0/VaultService.csproj.AssemblyReference.cache
+/Users/roy/Documents/Skole/Vault/VaultService/obj/Debug/net8.0/VaultService.GeneratedMSBuildEditorConfig.editorconfig
+/Users/roy/Documents/Skole/Vault/VaultService/obj/Debug/net8.0/VaultService.AssemblyInfoInputs.cache
+/Users/roy/Documents/Skole/Vault/VaultService/obj/Debug/net8.0/VaultService.AssemblyInfo.cs
+/Users/roy/Documents/Skole/Vault/VaultService/obj/Debug/net8.0/VaultService.csproj.CoreCompileInputs.cache
+/Users/roy/Documents/Skole/Vault/VaultService/obj/Debug/net8.0/VaultService.dll
+/Users/roy/Documents/Skole/Vault/VaultService/obj/Debug/net8.0/refint/VaultService.dll
+/Users/roy/Documents/Skole/Vault/VaultService/obj/Debug/net8.0/VaultService.pdb
+/Users/roy/Documents/Skole/Vault/VaultService/obj/Debug/net8.0/ref/VaultService.dll

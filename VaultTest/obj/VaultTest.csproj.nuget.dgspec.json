@@ -1,0 +1,211 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/roy/Documents/Skole/Vault/VaultTest/VaultTest.csproj": {}
+  },
+  "projects": {
+    "/Users/roy/Documents/Skole/Vault/VaultService/VaultService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/roy/Documents/Skole/Vault/VaultService/VaultService.csproj",
+        "projectName": "VaultService",
+        "projectPath": "/Users/roy/Documents/Skole/Vault/VaultService/VaultService.csproj",
+        "packagesPath": "/Users/roy/.nuget/packages/",
+        "outputPath": "/Users/roy/Documents/Skole/Vault/VaultService/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/roy/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/roy/Documents/Skole/Vault/VaultTest/VaultTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/roy/Documents/Skole/Vault/VaultTest/VaultTest.csproj",
+        "projectName": "VaultTest",
+        "projectPath": "/Users/roy/Documents/Skole/Vault/VaultTest/VaultTest.csproj",
+        "packagesPath": "/Users/roy/.nuget/packages/",
+        "outputPath": "/Users/roy/Documents/Skole/Vault/VaultTest/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/roy/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/roy/Documents/Skole/Vault/VaultService/VaultService.csproj": {
+                "projectPath": "/Users/roy/Documents/Skole/Vault/VaultService/VaultService.csproj"
+              },
+              "/Users/roy/Documents/Skole/Vault/WebVault/WebVault.csproj": {
+                "projectPath": "/Users/roy/Documents/Skole/Vault/WebVault/WebVault.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.8.0, )"
+            },
+            "Selenium.WebDriver": {
+              "target": "Package",
+              "version": "[4.23.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.9.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/roy/Documents/Skole/Vault/WebVault/WebVault.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/roy/Documents/Skole/Vault/WebVault/WebVault.csproj",
+        "projectName": "WebVault",
+        "projectPath": "/Users/roy/Documents/Skole/Vault/WebVault/WebVault.csproj",
+        "packagesPath": "/Users/roy/.nuget/packages/",
+        "outputPath": "/Users/roy/Documents/Skole/Vault/WebVault/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/roy/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/roy/Documents/Skole/Vault/VaultService/VaultService.csproj": {
+                "projectPath": "/Users/roy/Documents/Skole/Vault/VaultService/VaultService.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

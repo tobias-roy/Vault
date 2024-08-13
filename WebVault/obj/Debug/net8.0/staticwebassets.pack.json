@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/roy/Documents/Skole/Vault/WebVault/obj/Debug/net8.0/scopedcss/projectbundle/WebVault.bundle.scp.css",
+      "PackagePath": "staticwebassets/WebVault.bundle.scp.css"
+    },
+    {
+      "Id": "/Users/roy/Documents/Skole/Vault/WebVault/wwwroot/app.css",
+      "PackagePath": "staticwebassets/app.css"
+    },
+    {
+      "Id": "/Users/roy/Documents/Skole/Vault/WebVault/wwwroot/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/roy/Documents/Skole/Vault/WebVault/wwwroot/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/roy/Documents/Skole/Vault/WebVault/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "/Users/roy/Documents/Skole/Vault/WebVault/wwwroot/images/city-vault.png",
+      "PackagePath": "staticwebassets/images/city-vault.png"
+    },
+    {
+      "Id": "/Users/roy/Documents/Skole/Vault/WebVault/wwwroot/images/key.png",
+      "PackagePath": "staticwebassets/images/key.png"
+    },
+    {
+      "Id": "/Users/roy/Documents/Skole/Vault/WebVault/wwwroot/images/lock-open.png",
+      "PackagePath": "staticwebassets/images/lock-open.png"
+    },
+    {
+      "Id": "/Users/roy/Documents/Skole/Vault/WebVault/wwwroot/images/lock.png",
+      "PackagePath": "staticwebassets/images/lock.png"
+    },
+    {
+      "Id": "/Users/roy/Documents/Skole/Vault/WebVault/wwwroot/images/lock.svg",
+      "PackagePath": "staticwebassets/images/lock.svg"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.WebVault.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.WebVault.props",
+      "PackagePath": "build\\WebVault.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.WebVault.props",
+      "PackagePath": "buildMultiTargeting\\WebVault.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.WebVault.props",
+      "PackagePath": "buildTransitive\\WebVault.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

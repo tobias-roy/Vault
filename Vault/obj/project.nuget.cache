@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "JE/Y91mwtlDJqd292gnyGNuhxU/QXvYqNe6+r8dZLkdKV5xIuvAyzx15mAxHM+WNcnLc2Vne8J+dqq+W9I86uA==",
+  "success": true,
+  "projectFilePath": "/Users/roy/Documents/Skole/Vault/Vault/Vault.csproj",
+  "expectedPackageFiles": [
+    "/Users/roy/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/9.0.0-preview.6.24327.7/microsoft.extensions.dependencyinjection.abstractions.9.0.0-preview.6.24327.7.nupkg.sha512",
+    "/Users/roy/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
