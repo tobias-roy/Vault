@@ -10,3 +10,6 @@
 /Users/roy/Documents/Skole/Vault/VaultService/obj/Debug/net8.0/refint/VaultService.dll
 /Users/roy/Documents/Skole/Vault/VaultService/obj/Debug/net8.0/VaultService.pdb
 /Users/roy/Documents/Skole/Vault/VaultService/obj/Debug/net8.0/ref/VaultService.dll
+/Users/roy/Documents/Skole/Vault/VaultService/bin/Debug/net8.0/VaultService.runtimeconfig.json
+/Users/roy/Documents/Skole/Vault/VaultService/obj/Debug/net8.0/VaultService.sourcelink.json
+/Users/roy/Documents/Skole/Vault/VaultService/obj/Debug/net8.0/VaultService.genruntimeconfig.cache

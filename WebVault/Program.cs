@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using VaultService;
 using WebVault.Components;
 
@@ -7,7 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+var connectionString = builder.Configuration.GetConnectionString("VaultDatabase");
+builder.Services.AddDbContextFactory<VaultDatabase>(options => options.UseSqlite(connectionString));
+
 builder.Services.AddSingleton<IVaultManager, VaultManager>();
+builder.Services.AddSingleton<IUserService, UserService>();
+
 
 var app = builder.Build();
 

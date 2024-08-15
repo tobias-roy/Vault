@@ -1,12 +1,31 @@
 ﻿@page "/"
-@using Newtonsoft.Json
 @using VaultService
+@inject NavigationManager NavigationManager
 @inject IVaultManager VaultManager
+@inject IUserService UserService
 @rendermode InteractiveServer
 
 <PageTitle>City Vault</PageTitle>
 
-<div class="mainGrid">
+<div class="@(_loggedIn ? "removeDisplay" : "")">
+    <EditForm EditContext="@_editContext" OnValidSubmit="HandleLogin">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="form-group">
+            <label for="username">Username</label>
+            <InputText id="loginUsername" class="form-control" @bind-Value="_username" />
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <InputText id="loginPassword" type="password" class="form-control" @bind-Value="_password" />
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </EditForm>
+    <img style="width: 60vw;" src="images/welcome-gif.gif" alt=""/>
+</div>
+
+<div class="mainGrid @(_loggedIn ? "isLoggedIn" : "isNotLoggedIn")">
+    <img src="@(_opened ? "images/look-gif.gif" : "images/where-gif.gif")" class="asianGif" alt=""/>
     <div class="mainGridItem left @(_opened ? "openLeft" : "")">
         @if (_opened)
         {
@@ -25,20 +44,39 @@
                 </tr>
                 }
             </table>
-            <button onclick="@CreateNewEntry">Add new combination</button>
+            <button onclick="@(() => _createNewEntryModal = true)">Add new combination</button>
         }
     </div>
     <div class="mainCenter">
-        <img class="lock @(_opened ? "open" : "")" onclick="@OpenLock" src="@(_opened ? "images/lock-open.png" : "images/lock.png")" />
+        <img alt="" class="lock @(_opened ? "open" : "")" @onclick="@OpenLock" src="@(_opened ? "images/lock-open.png" : "images/lock.png")" />
+        @if (!_opened){
+                <button class="logoutButton" @onclick="@Logout">Logout</button>
+        }
     </div>
-    <div class="mainGridItem right">
+    <div class="mainGridItem right @(_newCreated ? "removeDisplay" : "")">
+        <EditForm Model="@_userModel" OnValidSubmit="HandleCreateUser">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <InputText id="username" class="form-control" @bind-Value="_userModel.Username" />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <InputText id="password" type="password" class="form-control" @bind-Value="_userModel.Password" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create User</button>
+        </EditForm>
     </div>
 </div>
 
 @if (_displayPasswordInput)
 {
     <div class="decryptEncryptInputWrapper @(_wrongPassword ? "wrongPassword" : "")">
-        <input onchange="@PasswordInputChanged" @ref="decryptPasswordInput" type="password" class="decryptEncryptInput" onkeydown="@TryPassword"/>
+        <input @onchange="@PasswordInputChanged" @ref="_decryptPasswordInput" type="password" class="decryptEncryptInput" @onkeydown="@TryPassword"/>
     </div>
 }
 
@@ -56,17 +94,61 @@
 
 
 @code {
-    private ElementReference decryptPasswordInput;
+    private EditContext? _editContext;
+    private ElementReference? _decryptPasswordInput;
     private VaultEntry NewVaultEntry { get; set; } = new VaultEntry();
-    private bool _opened = false;
-    private bool _displayPasswordInput = false;
-    private bool _createNewEntryModal = false;
-    private bool _wrongPassword = false;
-    private string _decryptPassword = "";
-    public List<VaultEntry> Entries { get; set; } = new List<VaultEntry>();
-    private string PageTitle = "City Vault - Locked";
+    private bool _loggedIn;
+    private bool _opened;
+    private bool _displayPasswordInput;
+    private bool _createNewEntryModal;
+    private bool _wrongPassword;
+    private bool _newCreated;
+    private string? _decryptPassword = "";
+    private string _username = "";
+    private string _password = "";
+    private List<VaultEntry> Entries { get; set; } = new List<VaultEntry>();
     
-    public async Task OpenLock()
+    private readonly UserModel _userModel = new UserModel();
+    
+    private class UserModel
+    {
+        public string Username { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+    }
+    
+    protected override void OnInitialized()
+    {
+        _editContext = new EditContext(this);
+    }
+
+    private void Logout()
+    {
+        NavigationManager.NavigateTo(NavigationManager.BaseUri, true);
+    }
+
+    private async Task HandleLogin()
+    {
+        if(await UserService.ValidateUserAsync(_username, _password))
+        {
+            _loggedIn = true;
+            Entries = VaultManager.LoadEntries();
+        }
+    }
+    
+    private async Task HandleCreateUser()
+    {
+        bool isCreated = await UserService.CreateUserAsync(_userModel.Username, _userModel.Password);
+        if (isCreated)
+        {
+            _newCreated = true;
+        }
+        else
+        {
+            Console.WriteLine("Error creating user!");
+        }
+    }
+    
+    private async Task OpenLock()
     {
         if (_opened)
         {
@@ -77,10 +159,10 @@
         }
         _displayPasswordInput = true;
         await Task.Delay(100);
-        await decryptPasswordInput.FocusAsync();
+        if (_decryptPasswordInput != null) await _decryptPasswordInput.Value.FocusAsync();
     }
 
-    public async Task TryPassword(KeyboardEventArgs e)
+    private async Task TryPassword(KeyboardEventArgs e)
     {
         if(e.Key == "Enter")
         {
@@ -94,6 +176,7 @@
             }
             catch (Exception exception)
             {
+                Console.WriteLine(exception);
                 _wrongPassword = true;
             }
         }
@@ -111,14 +194,29 @@
         Entries = VaultManager.LoadEntries();
     }
 
-    public void PasswordInputChanged(ChangeEventArgs e)
+    private void PasswordInputChanged(ChangeEventArgs e)
     {
-        _decryptPassword = e.Value.ToString();
-        _wrongPassword = false;
+        if (e.Value != null)
+        {
+            _decryptPassword = e.Value.ToString();
+            _wrongPassword = false;
+        }
     }
 }
 
 <style>
+    .isLoggedIn {
+        display: grid;
+    }
+    
+    .isNotLoggedIn {
+        display:  none !important;
+    }
+    
+    .removeDisplay {
+        display: none !important;
+    }
+    
     .mainGrid {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -128,6 +226,12 @@
         background-position: center;
         background-size: auto 100%;
         position: relative;
+    }
+
+    .asianGif{
+        width: 400px;
+        bottom: 0;
+        position: absolute;
     }
 
     .mainGridItem.left {
@@ -140,7 +244,7 @@
         padding: 5px;
         height: 50%;
         width: 80%;
-        box-shadow: black 0px 0px 10px;
+        box-shadow: black 0 0 10px;
         visibility: hidden;
     }
     
@@ -170,6 +274,17 @@
         cursor: pointer;
     }
     
+    .logoutButton {
+        height: 30px;
+        width: 100px;
+        color: red;
+        border-radius: 8px;
+        border: none;
+        position: absolute;
+        cursor: pointer;
+        margin-top:  150px;
+    }
+    
     .lock.open {
         background: green;
     }
@@ -187,10 +302,10 @@
     .decryptEncryptInputWrapper.wrongPassword {
         background-color: red;
         border-radius: 5px;
-        animation: skew-x-shakeng 0.5s;
+        animation: shake 0.5s;
     }
     
-    @@keyframes skew-x-shakeng{
+    @@keyframes shake{
         0% { transform: skewX(-15deg); }
         5% { transform: skewX(15deg); }
         10% { transform: skewX(-15deg); }

@@ -16,7 +16,7 @@ public class SeleniumTests : IDisposable
     {
         var options = new ChromeOptions();
         options.AddArgument("--disable-search-engine-choice-screen");
-        // options.AddArgument("--headless");
+        options.AddArgument("--headless");
             
         driver = new ChromeDriver(options);
         driver.Navigate().GoToUrl("http://localhost:5011");

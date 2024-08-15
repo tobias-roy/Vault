@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebVault")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+984caa5d6709d6b725431f6cbfb6595b41edf808")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebVault")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebVault")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

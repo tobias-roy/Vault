@@ -41,6 +41,18 @@
       "PackagePath": "staticwebassets/images/lock.svg"
     },
     {
+      "Id": "/Users/roy/Documents/Skole/Vault/WebVault/wwwroot/images/look-gif.gif",
+      "PackagePath": "staticwebassets/images/look-gif.gif"
+    },
+    {
+      "Id": "/Users/roy/Documents/Skole/Vault/WebVault/wwwroot/images/welcome-gif.gif",
+      "PackagePath": "staticwebassets/images/welcome-gif.gif"
+    },
+    {
+      "Id": "/Users/roy/Documents/Skole/Vault/WebVault/wwwroot/images/where-gif.gif",
+      "PackagePath": "staticwebassets/images/where-gif.gif"
+    },
+    {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.WebVault.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

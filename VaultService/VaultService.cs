@@ -8,12 +8,12 @@ namespace VaultService
     {
         void AddEntry(VaultEntry newEntries);
         List<VaultEntry> ViewEntries();
-        void EncryptVault(string password);
-        void DecryptVault(string password);
+        void EncryptVault(string? password);
+        void DecryptVault(string? password);
         List<VaultEntry> LoadEntries();
         void SaveEntries(List<VaultEntry> entries);
-        string EncryptString(string plainText, string password);
-        string DecryptString(string cipherText, string password);
+        string EncryptString(string plainText, string? password);
+        string DecryptString(string cipherText, string? password);
     }
 
     public class VaultManager : IVaultManager
@@ -45,7 +45,7 @@ namespace VaultService
         /// Deletes the plain text file after encryption.
         /// </summary>
         /// <param name="password"></param>
-        public  void EncryptVault(string password)
+        public void EncryptVault(string? password)
         {
             var entries = LoadEntries();
             var json = JsonConvert.SerializeObject(entries);
@@ -59,7 +59,7 @@ namespace VaultService
         /// Writes the decrypted content to a new file.
         /// </summary>
         /// <param name="password"></param>
-        public  void DecryptVault(string password)
+        public  void DecryptVault(string? password)
         {
             if (File.Exists(_vaultFilePath))
             {
@@ -103,7 +103,7 @@ namespace VaultService
         /// <param name="plainText"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public string EncryptString(string plainText, string password)
+        public string EncryptString(string plainText, string? password)
         {
             using var aes = Aes.Create();
             aes.GenerateIV();
@@ -131,7 +131,7 @@ namespace VaultService
         /// <param name="cipherText"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public string DecryptString(string cipherText, string password)
+        public string DecryptString(string cipherText, string? password)
         {
             var fullCipher = Convert.FromBase64String(cipherText);
 

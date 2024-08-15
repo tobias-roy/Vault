@@ -11,7 +11,7 @@ namespace PasswordVaultTests
         public void TestEncryptDecrypt()
         {
             string originalText = "This is a test";
-            string password = "password123";
+            string? password = "password123";
             string encrypted = VaultManager.EncryptString(originalText, password);
             string decrypted = VaultManager.DecryptString(encrypted, password);
 
