@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ueGPhZSj8T0KHW0vzqe0LrUsj5MKvpQx/ErpJ5NsnSc4mmj/qg3EsBetKVh1EuNrVfwhpi7x+/m+heVUG8zwpw==",
+  "dgSpecHash": "p0SVR3fpbTAMe5uO6A1FAvu0hgXcLxaC5VH9SfAWKNDvY7SrrlweGtLa9f/UxVgeblrAnsHXP//cBj1iO/dURQ==",
   "success": true,
   "projectFilePath": "/Users/roy/Documents/Skole/Vault/VaultTest/VaultTest.csproj",
   "expectedPackageFiles": [
@@ -45,7 +45,9 @@
     "/Users/roy/.nuget/packages/xunit.assert/2.9.0/xunit.assert.2.9.0.nupkg.sha512",
     "/Users/roy/.nuget/packages/xunit.core/2.9.0/xunit.core.2.9.0.nupkg.sha512",
     "/Users/roy/.nuget/packages/xunit.extensibility.core/2.9.0/xunit.extensibility.core.2.9.0.nupkg.sha512",
-    "/Users/roy/.nuget/packages/xunit.extensibility.execution/2.9.0/xunit.extensibility.execution.2.9.0.nupkg.sha512"
+    "/Users/roy/.nuget/packages/xunit.extensibility.execution/2.9.0/xunit.extensibility.execution.2.9.0.nupkg.sha512",
+    "/Users/roy/.nuget/packages/xunit.runner.console/2.9.0/xunit.runner.console.2.9.0.nupkg.sha512",
+    "/Users/roy/.nuget/packages/xunit.runner.visualstudio/3.0.0-pre.24/xunit.runner.visualstudio.3.0.0-pre.24.nupkg.sha512"
   ],
   "logs": []
 }

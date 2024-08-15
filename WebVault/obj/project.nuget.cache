@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "TfiKvQTziRVEB978uV7qvTID5bYVm25akvn0m2K7SUe9Q0UQBW3nL4oE9cihaCTdmSNh01vS9GJRfEkwK4amrw==",
+  "dgSpecHash": "8q22uKgMM1ST05MemPERAztbGhc8MyZu5HdeGig/aCP4GZal29rPO4vy/dzQ5E2kpXNJod4ODHwhV9dpO2a+SA==",
   "success": true,
   "projectFilePath": "/Users/roy/Documents/Skole/Vault/WebVault/WebVault.csproj",
   "expectedPackageFiles": [
@@ -30,7 +30,9 @@
     "/Users/roy/.nuget/packages/system.io.pipelines/9.0.0-preview.7.24405.7/system.io.pipelines.9.0.0-preview.7.24405.7.nupkg.sha512",
     "/Users/roy/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
     "/Users/roy/.nuget/packages/system.text.encodings.web/9.0.0-preview.7.24405.7/system.text.encodings.web.9.0.0-preview.7.24405.7.nupkg.sha512",
-    "/Users/roy/.nuget/packages/system.text.json/9.0.0-preview.7.24405.7/system.text.json.9.0.0-preview.7.24405.7.nupkg.sha512"
+    "/Users/roy/.nuget/packages/system.text.json/9.0.0-preview.7.24405.7/system.text.json.9.0.0-preview.7.24405.7.nupkg.sha512",
+    "/Users/roy/.nuget/packages/xunit.runner.console/2.9.0/xunit.runner.console.2.9.0.nupkg.sha512",
+    "/Users/roy/.nuget/packages/xunit.runner.visualstudio/3.0.0-pre.24/xunit.runner.visualstudio.3.0.0-pre.24.nupkg.sha512"
   ],
   "logs": []
 }

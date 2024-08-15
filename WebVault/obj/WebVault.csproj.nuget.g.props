@@ -13,6 +13,11 @@
     <SourceRoot Include="/Users/roy/.nuget/packages/" />
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)xunit.runner.visualstudio/3.0.0-pre.24/build/net6.0/xunit.runner.visualstudio.props" Condition="Exists('$(NuGetPackageRoot)xunit.runner.visualstudio/3.0.0-pre.24/build/net6.0/xunit.runner.visualstudio.props')" />
+    <Import Project="$(NuGetPackageRoot)xunit.runner.console/2.9.0/build/xunit.runner.console.props" Condition="Exists('$(NuGetPackageRoot)xunit.runner.console/2.9.0/build/xunit.runner.console.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore/9.0.0-preview.7.24405.3/buildTransitive/net8.0/Microsoft.EntityFrameworkCore.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore/9.0.0-preview.7.24405.3/buildTransitive/net8.0/Microsoft.EntityFrameworkCore.props')" />
   </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Pkgxunit_runner_console Condition=" '$(Pkgxunit_runner_console)' == '' ">/Users/roy/.nuget/packages/xunit.runner.console/2.9.0</Pkgxunit_runner_console>
+  </PropertyGroup>
 </Project>

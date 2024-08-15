@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VaultTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+984caa5d6709d6b725431f6cbfb6595b41edf808")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6d57b5cf23be33dd13a03da5904746b49041b864")]
 [assembly: System.Reflection.AssemblyProductAttribute("VaultTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VaultTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -44,7 +44,7 @@
                 </tr>
                 }
             </table>
-            <button onclick="@(() => _createNewEntryModal = true)">Add new combination</button>
+            <button @onclick="@ShowCreateNewModal">Add new combination</button>
         }
     </div>
     <div class="mainCenter">
@@ -124,6 +124,11 @@
     private void Logout()
     {
         NavigationManager.NavigateTo(NavigationManager.BaseUri, true);
+    }
+
+    private void ShowCreateNewModal()
+    {
+        _createNewEntryModal = true;
     }
 
     private async Task HandleLogin()
