@@ -44,8 +44,6 @@ public class SeleniumTests : IDisposable
         usernameInput.SendKeys("test");
         passwordInput.SendKeys("test");
         driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-
-        // wait.Until(driver => loginButton.Enabled);
         loginButton.Click();
         driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         var logoutButton = driver.FindElement(By.XPath("/html/body/div[1]/main/article/div[2]/div[2]/button"));

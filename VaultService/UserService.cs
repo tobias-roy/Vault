@@ -22,7 +22,6 @@ public class VaultDatabase : DbContext
     
     public DbSet<VaultUser> Users { get; set; }
 }
-
 public class VaultUser
 {
     public int Id { get; set; }
@@ -56,7 +55,7 @@ public class UserService : IUserService
     public async Task<bool> ValidateUserAsync(string username, string password)
     {
         var user = await GetUserAsync(username);
-        var salt = Convert.FromBase64String(user?.Salt);
+        var salt = Convert.FromBase64String(user?.Salt ?? throw new InvalidOperationException());
         var derivedPassword = new Rfc2898DeriveBytes(password, salt, 100, HashAlgorithmName.SHA256);
         var passwordHash = Convert.ToBase64String(derivedPassword.GetBytes(32));
         return user.Password == passwordHash;
@@ -67,16 +66,13 @@ public class UserService : IUserService
     {
         try
         {
-            //Define a user wide salt
-            
             byte[] salt = new byte[16];
-            using (var rng = new RNGCryptoServiceProvider())
+            using (var rng = RandomNumberGenerator.Create())
             {
                 rng.GetBytes(salt);
             }
             
-            
-            //Derive a password from the user password using the salt and 10000 iterations of SHA256.
+            //Derive a password from the user password using the salt and 100 iterations of SHA256.
             var derivedPassword = new Rfc2898DeriveBytes(password, salt, 100, HashAlgorithmName.SHA256);
             
             //Convert the salt and derived password to strings
