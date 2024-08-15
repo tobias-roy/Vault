@@ -8,6 +8,7 @@ namespace PasswordVaultTests
         private readonly IVaultManager VaultManager = new VaultManager();
         
         [Fact]
+        [Trait("Category", "UnitTests")]
         public void TestEncryptDecrypt()
         {
             string originalText = "This is a test";
@@ -19,6 +20,7 @@ namespace PasswordVaultTests
         }
 
         [Fact]
+        [Trait("Category", "UnitTests")]
         public void TestAddEntry()
         {
             var entries = new List<VaultEntry>();
@@ -30,6 +32,7 @@ namespace PasswordVaultTests
         }
 
         [Fact]
+        [Trait("Category", "UnitTests")]
         public void TestSaveLoadEntries()
         {
             var entries = new List<VaultEntry>

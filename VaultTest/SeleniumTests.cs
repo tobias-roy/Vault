@@ -21,14 +21,13 @@ public class SeleniumTests : IDisposable
         options.AddArgument("--headless=new");
         options.AddArgument("--allow-insecure-localhost");
         options.AddArgument("--user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36");
-        options.AddArgument("--remote-debugging-pipe");
-            
         driver = new ChromeDriver(options);
         driver.Navigate().GoToUrl("http://localhost:5011");
         wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
     }
     
     [Fact]
+    [Trait("Category", "SeleniumTests")]
     public void IsHomeStartPage()
     {
         var title = driver.Title;
@@ -36,6 +35,7 @@ public class SeleniumTests : IDisposable
     }
     
     [Fact]
+    [Trait("Category", "SeleniumTests")]
     public void CanUserLogin()
     {
         var usernameInput = driver.FindElement(By.XPath("/html/body/div[1]/main/article/div[1]/form/div[1]/input"));
