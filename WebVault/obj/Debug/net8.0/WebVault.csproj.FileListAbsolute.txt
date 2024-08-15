@@ -104,3 +104,5 @@
 /Users/roy/Documents/Skole/Vault/WebVault/bin/Debug/net8.0/runtimes/win-x86/native/e_sqlite3.dll
 /Users/roy/Documents/Skole/Vault/WebVault/bin/Debug/net8.0/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
 /Users/roy/Documents/Skole/Vault/WebVault/obj/Debug/net8.0/WebVault.sourcelink.json
+/Users/roy/Documents/Skole/Vault/WebVault/bin/Debug/net8.0/xunit.abstractions.dll
+/Users/roy/Documents/Skole/Vault/WebVault/bin/Debug/net8.0/xunit.runner.visualstudio.testadapter.dll

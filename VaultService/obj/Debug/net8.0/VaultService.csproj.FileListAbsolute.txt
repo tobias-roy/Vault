@@ -13,3 +13,5 @@
 /Users/roy/Documents/Skole/Vault/VaultService/bin/Debug/net8.0/VaultService.runtimeconfig.json
 /Users/roy/Documents/Skole/Vault/VaultService/obj/Debug/net8.0/VaultService.sourcelink.json
 /Users/roy/Documents/Skole/Vault/VaultService/obj/Debug/net8.0/VaultService.genruntimeconfig.cache
+/Users/roy/Documents/Skole/Vault/VaultService/bin/Debug/net8.0/xunit.abstractions.dll
+/Users/roy/Documents/Skole/Vault/VaultService/bin/Debug/net8.0/xunit.runner.visualstudio.testadapter.dll

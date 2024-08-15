@@ -14,6 +14,7 @@ builder.Services.AddDbContextFactory<VaultDatabase>(options => options.UseSqlite
 builder.Services.AddSingleton<IVaultManager, VaultManager>();
 builder.Services.AddSingleton<IUserService, UserService>();
 
+Console.WriteLine($"Environment: {builder.Environment.EnvironmentName}");
 
 var app = builder.Build();
 

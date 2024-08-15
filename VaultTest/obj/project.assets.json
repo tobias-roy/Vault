@@ -627,6 +627,18 @@
           "buildTransitive/Selenium.WebDriver.targets": {}
         }
       },
+      "SeleniumExtras.WaitHelpers/1.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "4.0.0-beta2"
+        },
+        "compile": {
+          "lib/netstandard2.1/SeleniumExtras.WaitHelpers.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/SeleniumExtras.WaitHelpers.dll": {}
+        }
+      },
       "SQLitePCLRaw.bundle_e_sqlite3/2.1.8": {
         "type": "package",
         "dependencies": {
@@ -1816,6 +1828,19 @@
         "selenium.webdriver.nuspec"
       ]
     },
+    "SeleniumExtras.WaitHelpers/1.0.2": {
+      "sha512": "de7m30nkZZLkfCncYBdluUpM27AR/Vkk4kiA4HRQbV+fZI3ps4qGIeJCuj8TAMXdMfQik5Rno8xPnFBIod+ebg==",
+      "type": "package",
+      "path": "seleniumextras.waithelpers/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "lib/netstandard2.1/SeleniumExtras.WaitHelpers.dll",
+        "seleniumextras.waithelpers.1.0.2.nupkg.sha512",
+        "seleniumextras.waithelpers.nuspec"
+      ]
+    },
     "SQLitePCLRaw.bundle_e_sqlite3/2.1.8": {
       "sha512": "zIk4j5WLCj9E/8FV3Zy31ca/5klVKoeiT3bZoY8bOlNpDt/CE1+EUxmeoZ5IW09T2OXG3AwKICcqCaS6aHEPWw==",
       "type": "package",
@@ -2358,6 +2383,7 @@
     "net8.0": [
       "Microsoft.NET.Test.Sdk >= 17.8.0",
       "Selenium.WebDriver >= 4.23.0",
+      "SeleniumExtras.WaitHelpers >= 1.0.2",
       "VaultService >= 1.0.0",
       "WebVault >= 1.0.0",
       "coverlet.collector >= 6.0.0",
@@ -2417,6 +2443,10 @@
           "Selenium.WebDriver": {
             "target": "Package",
             "version": "[4.23.0, )"
+          },
+          "SeleniumExtras.WaitHelpers": {
+            "target": "Package",
+            "version": "[1.0.2, )"
           },
           "coverlet.collector": {
             "target": "Package",
