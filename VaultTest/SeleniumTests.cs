@@ -16,12 +16,12 @@ public class SeleniumTests : IDisposable
     {
         var options = new ChromeOptions();
         options.AddArgument("--disable-search-engine-choice-screen");
-        // options.AddArgument("--window-size=1920,1080");
-        // options.AddArgument("--start-maximized");
-        // options.AddArgument("--headless=new");
-        // options.AddArgument("--allow-insecure-localhost");
-        //This one is needed locally
-        // options.AddArgument("--user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36");
+        options.AddArgument("--window-size=1920,1080");
+        options.AddArgument("--start-maximized");
+        options.AddArgument("--headless=new");
+        options.AddArgument("--allow-insecure-localhost");
+        options.AddArgument("--user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36");
+        options.AddArgument("--remote-debugging-pipe");
             
         driver = new ChromeDriver(options);
         driver.Navigate().GoToUrl("http://localhost:5011");
