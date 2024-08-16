@@ -111,6 +111,7 @@ namespace VaultService
 
             // Derive the key from the password
             var key = new Rfc2898DeriveBytes(password, Encoding.UTF8.GetBytes("SaltIsGoodForYou!")).GetBytes(32);
+            // var key = new Rfc2898DeriveBytes(password, Encoding.UTF8.GetBytes("HardSalt"), 100, HashAlgorithmName.SHA256).GetBytes(32);
             aes.Key = key;
 
             // Encrypt the data
@@ -131,7 +132,7 @@ namespace VaultService
         /// <param name="cipherText"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public string DecryptString(string cipherText, string? password)
+        public string DecryptString(string cipherText, string password)
         {
             var fullCipher = Convert.FromBase64String(cipherText);
 
@@ -146,6 +147,7 @@ namespace VaultService
             // Derive the key from the password
             using var aes = Aes.Create();
             var key = new Rfc2898DeriveBytes(password, Encoding.UTF8.GetBytes("SaltIsGoodForYou!")).GetBytes(32);
+            // var key = new Rfc2898DeriveBytes(password, Encoding.UTF8.GetBytes("HardSalt"), 100, HashAlgorithmName.SHA256).GetBytes(32);
             aes.Key = key;
             aes.IV = iv;
 

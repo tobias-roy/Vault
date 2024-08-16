@@ -54,11 +54,19 @@ public class UserService : IUserService
     
     public async Task<bool> ValidateUserAsync(string username, string password)
     {
-        var user = await GetUserAsync(username);
-        var salt = Convert.FromBase64String(user?.Salt ?? throw new InvalidOperationException());
-        var derivedPassword = new Rfc2898DeriveBytes(password, salt, 100, HashAlgorithmName.SHA256);
-        var passwordHash = Convert.ToBase64String(derivedPassword.GetBytes(32));
-        return user.Password == passwordHash;
+        try
+        {
+            var user = await GetUserAsync(username);
+            var salt = Convert.FromBase64String(user?.Salt ?? throw new InvalidOperationException());
+            var derivedPassword = new Rfc2898DeriveBytes(password, salt, 100, HashAlgorithmName.SHA256);
+            var passwordHash = Convert.ToBase64String(derivedPassword.GetBytes(32));
+            return user.Password == passwordHash;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return false;
+        }
     }
     
     
